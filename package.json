@@ -1,0 +1,42 @@
+{
+  "name": "proxy-fs",
+  "version": "0.0.1",
+  "description": "A simple proxy filesystem.",
+  "main": "lib/ProxyFileSystem.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zswang/proxy-fs.git"
+  },
+  "keywords": [
+    "proxy",
+    "filesystem",
+    "memory",
+    "gulp"
+  ],
+  "author": {
+    "name": "zswang",
+    "url": "http://weibo.com/zswang"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zswang/proxy-fs/issues"
+  },
+  "homepage": "https://github.com/zswang/proxy-fs",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-open": "^2.0.0",
+    "gulp-example": "^0.0.1",
+    "gulp-jdists": "^0.0.5",
+    "gulp-rename": "^1.2.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "_update_version": "node version.js",
+    "dist": "npm run _update_version && gulp",
+    "debug": "gulp debug"
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ]
+}
