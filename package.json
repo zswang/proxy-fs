@@ -1,6 +1,6 @@
 {
   "name": "proxy-fs",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "A simple proxy filesystem.",
   "main": "lib/ProxyFileSystem.js",
   "repository": {

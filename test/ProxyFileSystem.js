@@ -9,7 +9,7 @@ describe("src/ProxyFileSystem.js", function () {
     examplejs_printLines.push(util.format.apply(util, arguments));
   }
 
-  it("ProxyFileSystem():return all", function() {
+  it("ProxyFileSystem():return { path, fileSystem }", function() {
     examplejs_printLines = [];
   var mfs = new MemoryFileSystem({});
   var pfs = new ProxyFileSystem(function (path) {

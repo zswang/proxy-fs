@@ -23,8 +23,9 @@ var fs = require('fs');
  * 文件系统代理
  *
  * @param{Function (path): FileSystem} route 路由规则
+ * @param{FileSystem} defaultFileSystem 默认文件系统对象
  * @constructor
- * @example ProxyFileSystem():return all
+ * @example ProxyFileSystem():return { path, fileSystem }
   ```js
   var mfs = new MemoryFileSystem({});
   var pfs = new ProxyFileSystem(function (path) {
@@ -92,13 +93,14 @@ var fs = require('fs');
   // > hello
   ```
  */
-function ProxyFileSystem(route) {
+function ProxyFileSystem(route, defaultFileSystem) {
   this.route = route;
+  this.defaultFileSystem = defaultFileSystem;
 }
 
-Object.keys(fs).forEach(function (key) {
+Object.keys(fs).concat(['mkdirp', 'mkdirpSync', 'join']).forEach(function (key) {
   var fn = fs[key];
-  if (typeof fn === 'function') {
+  if (typeof fn === 'function' || /^(mkdirp|join)/.test(key)) {
     ProxyFileSystem.prototype[key] = function (path) {
       var fileSystem;
       if (typeof path === 'string' && this.route) {
@@ -117,7 +119,7 @@ Object.keys(fs).forEach(function (key) {
         }
       }
       if (!fileSystem) {
-        fileSystem = fs;
+        fileSystem = this.defaultFileSystem || fs;
       }
       return fileSystem[key].apply(fileSystem, arguments);
     };
