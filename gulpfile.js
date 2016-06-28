@@ -4,11 +4,8 @@
 'use strict';
 
 var gulp = require('gulp');
-var util = require('util');
 var jdists = require('gulp-jdists');
-var rename = require('gulp-rename');
 var examplejs = require('gulp-examplejs');
-var open = require('gulp-open');
 
 gulp.task('build', function() {
   return gulp.src(['src/**.js'])

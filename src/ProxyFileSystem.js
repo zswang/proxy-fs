@@ -111,11 +111,11 @@ Object.keys(fs).concat(['mkdirp', 'mkdirpSync', 'join']).forEach(function (key) 
           } else {
             fileSystem = result.fileSystem;
             if (typeof result.path === 'string') {
-              arguments[0] = result.path;
+              path = result.path;
             }
           }
         } else if (typeof result === 'string') {
-          arguments[0] = result;
+          path = result;
         }
       }
       if (!fileSystem) {

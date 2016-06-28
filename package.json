@@ -1,6 +1,6 @@
 {
   "name": "proxy-fs",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "A simple proxy filesystem.",
   "main": "lib/ProxyFileSystem.js",
   "repository": {
@@ -24,10 +24,8 @@
   "homepage": "https://github.com/zswang/proxy-fs",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-open": "^2.0.0",
     "gulp-examplejs": "^0.0.5",
     "gulp-jdists": "^0.0.5",
-
     "jshint": "2.5.8",
     "memory-fs": "^0.3.0",
     "mocha": "^2.0.1",
@@ -38,7 +36,6 @@
   "scripts": {
     "_update_version": "node version.js",
     "_dist": "gulp",
-
     "lint": "jshint src/*.js",
     "test": "istanbul cover --hook-run-in-context node_modules/mocha/bin/_mocha -- -R spec",
     "example": "gulp example",
